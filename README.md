@@ -1,2 +1,2 @@
 # Shoopcolz
-Tugas PAdengan tema e-commerce
+Tugas PA dengan tema e-commerce
