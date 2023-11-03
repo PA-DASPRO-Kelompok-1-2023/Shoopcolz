@@ -16,14 +16,22 @@ Dalam menu login akun admin ini akan diminta menginput username dan password.
 ## Menu Admin
 ## CRUD
 ### Display Produk
+![carbon (66)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/7edcde3c-f4dd-470e-af70-84879114823f)
+
 ### Create Produk
+
 ### Update Produk
 ### Delete Produk
+![carbon (69)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/1d18e821-de71-4a36-a5f1-7b7809ccdca5)
+## Search Produk
+![carbon (70)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/73effff5-885a-4528-b10a-f46c7b55f2d9)
 
 ## Register Customer
 ## Login Customer
 ## Menu Customer
 ## Transaksi Pembelian
+![carbon (73)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/24dce4a8-a32a-4c74-a58d-200f6417d624)
+
 ## E-Money
 ### Cek Saldo E-money Customer
 ### Top Up Saldo E-money Customer
