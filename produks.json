@@ -7,49 +7,67 @@
                     "ID": 1,
                     "Nama Produk": "Foundation",
                     "Harga": 150000,
-                    "Stok": 23
+                    "Stok": 5
                 },
                 {
                     "ID": 2,
                     "Nama Produk": "Cushion",
                     "Harga": 180000,
-                    "Stok": 24
+                    "Stok": 4
                 },
                 {
                     "ID": 3,
                     "Nama Produk": "Lipcream",
                     "Harga": 170000,
-                    "Stok": "30"
+                    "Stok": 6
                 },
                 {
                     "ID": 4,
                     "Nama Produk": "Consealer",
                     "Harga": 100000,
-                    "Stok": "20"
+                    "Stok": 7
                 },
                 {
                     "ID": 5,
                     "Nama Produk": "Mascara",
                     "Harga": 50000,
-                    "Stok": 19
+                    "Stok": 9
                 },
                 {
                     "ID": 6,
                     "Nama Produk": "Eyeliner",
                     "Harga": 750000,
-                    "Stok": "30"
+                    "Stok": 7
                 },
                 {
                     "ID": 7,
                     "Nama Produk": "Blush On",
                     "Harga": 60000,
-                    "Stok": 23
+                    "Stok": 15
                 },
                 {
                     "ID": 8,
                     "Nama Produk": "Primer",
                     "Harga": 135000,
-                    "Stok": 16
+                    "Stok": "14"
+                },
+                {
+                    "ID": 9,
+                    "Nama Produk": "Lipgloss",
+                    "Harga": 100000,
+                    "Stok": 20
+                },
+                {
+                    "ID": 10,
+                    "Nama Produk": "Lipgloss",
+                    "Harga": 100000,
+                    "Stok": 22
+                },
+                {
+                    "ID": 11,
+                    "Nama Produk": "fgtydsgha",
+                    "Harga": 500000,
+                    "Stok": 0
                 }
             ]
         },
@@ -59,14 +77,14 @@
                 {
                     "ID": 1,
                     "Nama Produk": "Smartphone",
-                    "Harga": 15000000,
-                    "Stok": 33
+                    "Harga": 18000000,
+                    "Stok": 15
                 },
                 {
                     "ID": 2,
                     "Nama Produk": "Laptop Asus",
                     "Harga": 20000000,
-                    "Stok": 56
+                    "Stok": 10
                 },
                 {
                     "ID": 3,
@@ -108,19 +126,25 @@
                     "ID": 9,
                     "Nama Produk": "AC",
                     "Harga": 5000000,
-                    "Stok": "23"
+                    "Stok": 23
                 },
                 {
                     "ID": 10,
                     "Nama Produk": "Kipas Angin",
                     "Harga": 450000,
-                    "Stok": "32"
+                    "Stok": 33
                 },
                 {
                     "ID": 11,
                     "Nama Produk": "Samsung",
                     "Harga": 15000000,
                     "Stok": 22
+                },
+                {
+                    "ID": 12,
+                    "Nama Produk": "gdfshjakl",
+                    "Harga": 1000000,
+                    "Stok": 2
                 }
             ]
         },
@@ -155,31 +179,31 @@
                     "ID": 5,
                     "Nama Produk": "Rok Hitam",
                     "Harga": 230000,
-                    "Stok": 23
+                    "Stok": 20
                 },
                 {
                     "ID": 6,
                     "Nama Produk": "Celana Kulot",
                     "Harga": 300000,
-                    "Stok": 22
+                    "Stok": 20
                 },
                 {
                     "ID": 7,
                     "Nama Produk": "Pashmina",
                     "Harga": 70000,
-                    "Stok": 22
+                    "Stok": 29
                 },
                 {
                     "ID": 8,
                     "Nama Produk": "Jaket",
                     "Harga": 450000,
-                    "Stok": 23
+                    "Stok": 18
                 },
                 {
                     "ID": 9,
-                    "Nama Produk": "Kaos",
-                    "Harga": 100000,
-                    "Stok": "29"
+                    "Nama Produk": "Jilbab",
+                    "Harga": 350000,
+                    "Stok": 20
                 }
             ]
         }
