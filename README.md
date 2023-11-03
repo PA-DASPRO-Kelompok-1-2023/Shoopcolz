@@ -13,7 +13,9 @@ ShopCoolz merupakan sebuah program sederhana menggunakan bahasa Phyton yang memu
 ![image](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144746289/a42d1d76-fdb7-47fb-a53a-571081aa3420)
 
 Dalam menu login akun admin ini akan diminta menginput username dan password.
+
 ## Menu Admin
+![carbon (5)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/ab215719-5ee3-41b2-85f2-0b0c1008849a)
 
 ## CRUD
 ### Display Produk
@@ -28,7 +30,11 @@ Dalam menu login akun admin ini akan diminta menginput username dan password.
 ![carbon (70)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/73effff5-885a-4528-b10a-f46c7b55f2d9)
 
 ## Register Customer
+![carbon (6)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/c840e5d9-d9cd-4b36-9aee-246f7a59f36d)
+
 ## Login Customer
+![carbon (7)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/8c994735-f631-4476-809b-62f5705614d6)
+Apabila berhasil login, akan langusng beralih ke menu customer
 
 ## Menu Customer
 ![carbon (82)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/de7471f9-d414-41bc-8ea0-d8db2f869eb3)
@@ -45,5 +51,9 @@ Dalam menu login akun admin ini akan diminta menginput username dan password.
 
 ## Sorting 
 ### Sorting Harga
-### Sorting Produk
+![carbon (8)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/834c8f79-2172-4ef4-8c81-d78d4bca636f)
+Diurutkan berdasarkan harga dari yang termurah sampai yang termahal
 
+### Sorting ID Produk
+![carbon (9)](https://github.com/PA-DASPRO-Kelompok-1-2023/Shoopcolz/assets/144810430/7f13dd9a-61c0-4acf-a9b4-c5a18e56adce)
+Diurutkan berdasarkan ID produk
