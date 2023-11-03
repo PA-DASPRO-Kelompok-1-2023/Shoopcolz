@@ -2,7 +2,7 @@
 Tugas PA dengan tema e-commerce by Kelompok 1 
 #### Anggota:
 1. Athira Fahmi				(2309116010)
-2. Naura Syawal Athalla Putri		(2309116032)
+2. Naura Syawal Athallah Putri		(2309116032)
 3. Tri Rahayu Septiyani		(2309116004)
 
 # Penjelasan Singkat Program
