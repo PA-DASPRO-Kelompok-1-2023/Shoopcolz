@@ -14,7 +14,17 @@ ShopCoolz merupakan sebuah program sederhana menggunakan bahasa Phyton yang memu
 ## CRUD
 ### Display Produk
 ### Create Produk
+### Update Produk
+### Delete Produk
 
-## 
 ## Register Customer
 ## Login Customer
+## Menu Customer
+## Transaksi Pembelian
+## E-Money
+### Cek Saldo E-money Customer
+### Top Up Saldo E-money Customer
+## Sorting 
+### Sorting Harga
+### Sorting Produk
+
