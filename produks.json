@@ -1,0 +1,188 @@
+{
+    "Kategori": [
+        {
+            "Nama Kategori": "Kosmetik",
+            "produk": [
+                {
+                    "ID": 1,
+                    "Nama Produk": "Foundation",
+                    "Harga": 150000,
+                    "Stok": 23
+                },
+                {
+                    "ID": 2,
+                    "Nama Produk": "Cushion",
+                    "Harga": 180000,
+                    "Stok": 24
+                },
+                {
+                    "ID": 3,
+                    "Nama Produk": "Lipcream",
+                    "Harga": 170000,
+                    "Stok": "30"
+                },
+                {
+                    "ID": 4,
+                    "Nama Produk": "Consealer",
+                    "Harga": 100000,
+                    "Stok": "20"
+                },
+                {
+                    "ID": 5,
+                    "Nama Produk": "Mascara",
+                    "Harga": 50000,
+                    "Stok": 19
+                },
+                {
+                    "ID": 6,
+                    "Nama Produk": "Eyeliner",
+                    "Harga": 750000,
+                    "Stok": "30"
+                },
+                {
+                    "ID": 7,
+                    "Nama Produk": "Blush On",
+                    "Harga": 60000,
+                    "Stok": 23
+                },
+                {
+                    "ID": 8,
+                    "Nama Produk": "Primer",
+                    "Harga": 135000,
+                    "Stok": 16
+                }
+            ]
+        },
+        {
+            "Nama Kategori": "Elektronik",
+            "produk": [
+                {
+                    "ID": 1,
+                    "Nama Produk": "Smartphone",
+                    "Harga": 15000000,
+                    "Stok": 33
+                },
+                {
+                    "ID": 2,
+                    "Nama Produk": "Laptop Asus",
+                    "Harga": 20000000,
+                    "Stok": 56
+                },
+                {
+                    "ID": 3,
+                    "Nama Produk": "TV",
+                    "Harga": 10000000,
+                    "Stok": 20
+                },
+                {
+                    "ID": 4,
+                    "Nama Produk": "Setrika",
+                    "Harga": 350000,
+                    "Stok": 23
+                },
+                {
+                    "ID": 5,
+                    "Nama Produk": "Kulkas",
+                    "Harga": 8000000,
+                    "Stok": 24
+                },
+                {
+                    "ID": 6,
+                    "Nama Produk": "Laptop Acer",
+                    "Harga": 12000000,
+                    "Stok": 27
+                },
+                {
+                    "ID": 7,
+                    "Nama Produk": "Mesin Cuci",
+                    "Harga": 10500000,
+                    "Stok": 21
+                },
+                {
+                    "ID": 8,
+                    "Nama Produk": "Laptop HP",
+                    "Harga": 13000000,
+                    "Stok": 12
+                },
+                {
+                    "ID": 9,
+                    "Nama Produk": "AC",
+                    "Harga": 5000000,
+                    "Stok": "23"
+                },
+                {
+                    "ID": 10,
+                    "Nama Produk": "Kipas Angin",
+                    "Harga": 450000,
+                    "Stok": "32"
+                },
+                {
+                    "ID": 11,
+                    "Nama Produk": "Samsung",
+                    "Harga": 15000000,
+                    "Stok": 22
+                }
+            ]
+        },
+        {
+            "Nama Kategori": "Fashion",
+            "produk": [
+                {
+                    "ID": 1,
+                    "Nama Produk": "Baju",
+                    "Harga": 500000,
+                    "Stok": 9
+                },
+                {
+                    "ID": 2,
+                    "Nama Produk": "Jeans",
+                    "Harga": 350000,
+                    "Stok": 5
+                },
+                {
+                    "ID": 3,
+                    "Nama Produk": "Sepatu",
+                    "Harga": 2000000,
+                    "Stok": 9
+                },
+                {
+                    "ID": 4,
+                    "Nama Produk": "Topi",
+                    "Harga": 200000,
+                    "Stok": 15
+                },
+                {
+                    "ID": 5,
+                    "Nama Produk": "Rok Hitam",
+                    "Harga": 230000,
+                    "Stok": 23
+                },
+                {
+                    "ID": 6,
+                    "Nama Produk": "Celana Kulot",
+                    "Harga": 300000,
+                    "Stok": 22
+                },
+                {
+                    "ID": 7,
+                    "Nama Produk": "Pashmina",
+                    "Harga": 70000,
+                    "Stok": 22
+                },
+                {
+                    "ID": 8,
+                    "Nama Produk": "Jaket",
+                    "Harga": 450000,
+                    "Stok": 23
+                },
+                {
+                    "ID": 9,
+                    "Nama Produk": "Kaos",
+                    "Harga": 100000,
+                    "Stok": "29"
+                }
+            ]
+        }
+    ],
+    "Diskon": 10
+}
