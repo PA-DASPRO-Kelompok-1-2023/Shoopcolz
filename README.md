@@ -8,7 +8,7 @@ Tugas PA dengan tema e-commerce by Kelompok 1
 # Penjelasan Singkat Program
 ShopCoolz merupakan sebuah program sederhana menggunakan bahasa Phyton yang memungkinkan pengguna untuk membeli barang secara online dengan uang e-money. ShopCoolz juga dapat digunakan dalam mode admin, yang di mana pengguna dapat menggunakan fitur CRUD untuk mengatur produk yang dijualnya. Shoopcolz juga menyediakan fitur tambahan yang menarik, yakni dapat memungkinkan penggunanya untuk mencari produk yang diinginkannya serta mengurutkan produk yang dijual berdasarkan harga termurah.
 
-# Deskripsi Program
+# Fitur Program
 ## Login Admin
 ## Menu Admin
 ## CRUD
