@@ -47,6 +47,7 @@ def save_data(data):
 '''============================================================================================================='''
 
 
+
 # Data admin yang tersimpan
 data_admin = {
     'athira': 'asahiganteng',
@@ -69,15 +70,21 @@ def admin_login():
         password = pwinput.pwinput("Masukkan password anda: ")
         try:
             if username in data_admin and data_admin[username] == password:
-                print("\n----Login Berhasil----\n")
-                print("Selamat datang!,", username)
+                print("\n     ----Login Berhasil----        ")
+                print(f"     Selamat datang!, {username}\n  ")
+                
                 admin()
                 break
             elif username in data_admin and data_admin[username] != password or not username in data_admin:
                 sisa_coba -= 1
-                print(f"Login gagal. Username atau password anda salah, silahkan coba lagi! \n Sisa percobaan: {sisa_coba}")
+                print("+=====================================================================+")
+                print("| Login gagal. Username atau password anda salah, silahkan coba lagi! |")
+                print(f"|                         Sisa percobaan: {sisa_coba}                           |")
+                print("+=====================================================================+\n")
                 if sisa_coba == 0:
-                    print('Akun anda terkunci. Mohon tunggu untuk coba lagi')
+                    print("\n+====================================================+")
+                    print("|  Akun anda terkunci. Mohon tunggu untuk coba lagi  |")
+                    print("+====================================================+")
                     for x in range (3, 0, -1):
                         time.sleep(1)
                         print(x)
@@ -86,8 +93,9 @@ def admin_login():
                     break
                     
         except (ValueError, KeyboardInterrupt):
-            print('Mohon masukkan data yang valid dan jangan tekan ctrl + C!')
-
+            print("\n+===========================================================+")
+            print("| Mohon masukkan data yang valid dan jangan tekan ctrl + C! |")
+            print("+===========================================================+\n")
 
 
 
@@ -95,6 +103,7 @@ def admin_login():
 '''=============================================================================================================='''
 '''                                             PILIHAN CUSTOMER (USER)                                          '''
 '''=============================================================================================================='''
+
 
 
 def user():
@@ -106,10 +115,10 @@ def user():
     print("|   2. Login                          |")
     print("|   3. Back                           |")
     print("+-------------------------------------+")
-
+    
     while True:
         try:
-            pilih = str(input('Masukkan pilihann yang anda inginkan: '))
+            pilih = str(input('Masukkan pilihan yang anda inginkan: '))
             if pilih == "1":
                 user_regist()
                 break
@@ -119,20 +128,24 @@ def user():
             elif pilih == "3":
                 start()
             else: 
-                print('Tolong masukka angka 1, 2, atau 3')
+                print("+=====================================+")
+                print("|  Tolong masukka angka 1, 2, atau 3  |")
+                print("+=====================================+\n")
             pass
         except (ValueError, KeyboardInterrupt ):
-            print("Mohon masukkan data yang valid dan jangan tekan ctrl + C!") 
+            print("\n+=============================================================+")
+            print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+            print("+=============================================================+\n")
         except Exception as a:
             print(f"Error, {a}") 
 
 
 
 
+'''=============================================================================================================='''
+'''                                           REGISTER CUSTOMER(USER)                                            '''
+'''=============================================================================================================='''
 
-'''=============================================================================================================='''
-'''                                           REGISTER DAN LOGIN USER                                            '''
-'''=============================================================================================================='''
 
 
 # Fungsi untuk user melakukan register
@@ -150,91 +163,107 @@ def user_regist ():
             # Untuk mengecek limit karakter
             username = input("Masukkan Username yang diinginkan: ")
             if not username.isalnum() or len(username) > 10:
-                print('Username tidak valid. Harus terdiri dari huruf dan angka saja, dan tidak boleh lebih dari 10 karakter.')
+                print("+===============================================================+")
+                print("| Username tidak valid. Harus terdiri dari huruf dan angka saja |")
+                print("|            dan tidak boleh lebih dari 10 karakter.            |")
+                print("+===============================================================+\n")
                 continue
             
             # Untuk mengecek apakah username sudah ada
             elif any(user["Nama User"] == username for user in login_data):
-                print('Username sudah ada. Tolong pilih yang lain')
+                print("+============================================+")
+                print("| Username sudah ada. Tolong pilih yang lain |")
+                print("+============================================+\n")
                 continue
             
             password = pwinput.pwinput("Masukkan password yang diinginkan: ")
             if not password.isalnum() or len(password) > 8:
-                print('Password tidak valid. Harus terdiri dari huruf dan angka saja, dan tidak boleh lebih dari 8 karakter.')
+                print("+===============================================================+")
+                print("| Password tidak valid. Harus terdiri dari huruf dan angka saja |")
+                print("|            dan tidak boleh lebih dari 8 karakter.             |")
+                print("+===============================================================+\n")
             else:
                 # Untuk menambahkan data user ke variabel yang ada           
                 akun = {
                     "Nama User": username,
                     "Pw User": password,
                     "Saldo": 0
-                            }
-                            
+                    }
+                    
                 login_data.append(akun)
                 save_data_user(login_data)  
-                            
-                print('\n----Anda berhasil Registrasi----\n')
-                print ("Selamat bergabung menjadi cooler bersama kami!! :)\n")
+                print("\n+=======================================================+")
+                print("|          ----Anda berhasil Registrasi----             |")
+                print("|   Selamat bergabung menjadi cooler bersama kami!! :)  |")
+                print("+=======================================================+\n")
                 user_login()
                 break
         except (ValueError, KeyboardInterrupt):
-            print("Mohon masukkan data yang valid dan jangan tekan ctrl + C!")
+            print("\n+=============================================================+")
+            print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+            print("+=============================================================+\n")
 
 
+
+
+'''=============================================================================================================='''
+'''                                           LOGIN CUSTOMER(USER)                                               '''
+'''=============================================================================================================='''
 
 
 
 # Fungsi untuk user melakukan login
 def user_login():
     global username
-    # Untuk load data user kalau ada
-    try:
-        login_data = load_data_user()
-    except FileNotFoundError:
-        print("Data pengguna tidak ditemukan. Silakan daftar terlebih dahulu.")
-        
+    login_data = load_data_user()
     print("+========================================== SILAHKAN LOGIN ==========================================+")
     print("|                            Pastikan akun anda telah terdaftar sebelumnya                           |")
     print("+====================================================================================================+")
     
     # Untuk mengecek kevalidan username dan password
     sisa_coba = 3
-    is_logged_in = False  # Variabel untuk mengontrol status login
+    is_logged_in = False
     while sisa_coba > 0 and not is_logged_in:
         try:
             username = input("Masukkan Username Anda: ")
             password = pwinput.pwinput("Masukkan Password Anda:")
             
-            if not (username.isalnum() and len(username) <= 10) or not (password.isalnum() and len(password) <= 8):
-                print('Input tidak valid. Username harus terdiri dari huruf dan angka saja, tidak boleh lebih dari 10 karakter. \nPassword harus terdiri dari huruf dan angka saja, tidak boleh lebih dari 8 karakter.')
-                continue
-            
-            else:  
-                akun_tersedia = False
-                # Untuk mengecek apakah ada username yang sama
-                for user in login_data:
-                    if user["Nama User"] == username:
-                        akun_tersedia = True
-                        # Untuk mengecek apakah pw nya sesuai
-                        if password == user["Pw User"]:
-                            print(f"\nLogin berhasil. Selamat datang, {username}!\n")
-                            is_logged_in = True  # Atur status login menjadi True
-                            break
-                        else:
-                            sisa_coba -= 1
-                            print(f"Login gagal. Kata sandi salah. Sisa percobaan: {sisa_coba}")
-                            continue
+            akun_tersedia = False
+            # Untuk mengecek apakah ada username yang sama
+            for user in login_data:
+                if user["Nama User"] == username:
+                    akun_tersedia = True
+                    # Untuk mengecek apakah pw nya sesuai
+                    if password == user["Pw User"]:
+                        print("\n     ----Login Berhasil----      ")
+                        print(f"     Selamat datang!, {username}\n")
+                        is_logged_in = True  # Atur status login menjadi True
+                        break
+                    else:
+                        sisa_coba -= 1
+                        print("+==================================================+")
+                        print(f"  Login gagal. Kata sandi salah. Sisa percobaan: {sisa_coba}")
+                        print("+==================================================+\n")
+                        continue
                 # Jika username tidak ditemukan       
-                if not akun_tersedia:
+            if not akun_tersedia:
                     sisa_coba -= 1
-                    print(f"Login gagal. Pengguna tidak ditemukan, silahkan coba lagi! Sisa percobaan: {sisa_coba}")
+                    print("+==================================================+")
+                    print("       Login gagal. Pengguna tidak ditemukan.       ")
+                    print(f"       Silahkan coba lagi! Sisa percobaan: {sisa_coba}")
+                    print("+==================================================+\n")
                     continue
         except (ValueError, KeyboardInterrupt):
-            print("Mohon masukkan data yang valid dan jangan tekan ctrl + C!")
+            print("\n+=============================================================+")
+            print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+            print("+=============================================================+\n")
         except Exception as a:
             print(f"Error, {a}")
                         
     if sisa_coba == 0:
-        print('Akun anda terkunci. Mohon tunggu untuk coba lagi')
+        print("\n+====================================================+")
+        print("|  Akun anda terkunci. Mohon tunggu untuk coba lagi  |")
+        print("+====================================================+")
         for x in range(3, 0, -1):
             time.sleep(3)
             print(x)
@@ -247,7 +276,6 @@ def user_login():
 
 
 
-
 '''=============================================================================================================='''
 '''                                                                                                              '''
 '''                                            MENU ADMIN (C R U D)                                              '''
@@ -255,9 +283,11 @@ def user_login():
 '''=============================================================================================================='''
 
 
+
 # Main program
 def admin():
     while True:
+        print("\n")
         print("+----------------------------------+")
         print("|            MENU ADMIN            |")
         print("+----------------------------------+")
@@ -272,10 +302,7 @@ def admin():
         try:
             pilih = input("Pilih opsi (1/2/3/4/5/6): ")
             if pilih == "1":
-                data = load_data()
-                for kategori in data["Kategori"]:
-                    print(f"\nKategori: {kategori['Nama Kategori']}")
-                    display_products(kategori["produk"])
+                display_products()
             elif pilih == "2":
                 create()
             elif pilih == "3":
@@ -283,26 +310,23 @@ def admin():
             elif pilih == "4":
                 delete()
             elif pilih == "5":
-                cari_produk = input("Masukkan Nama Produk yang akan dicari: ")
-                cari_produk = search(cari_produk)
-                if cari_produk:
-                    print("Hasil Pencarian:")
-                    display_products(cari_produk)
-                else:
-                        print("Produk tidak ditemukan.")
+                search()
             elif pilih == "6":
-                print("+=========================================================+")
+                print("\n+=========================================================+")
                 print("|             Anda telah keluar dari akun admin.          |")
                 print("|  Silahkan login kembali jika ingin mengedit menu admin  |")
                 print("+=========================================================+")
                 break
             else:
-                print("Opsi tidak valid. Pilih opsi yang sesuai (1/2/3/4/5/6).")
+                print("+=========================================================+")
+                print("| Opsi tidak valid. Pilih opsi yang sesuai (1/2/3/4/5/6). |")
+                print("+=========================================================+\n")
         except (ValueError, KeyboardInterrupt):
-            print('Mohon masukkan data yang valid dan jangan tekan ctrl + C!')
+            print("\n+=============================================================+")
+            print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+            print("+=============================================================+\n")
         except Exception as a:
             print(f"Error, {a}")
-
 
 
 
@@ -312,18 +336,21 @@ def admin():
 '''=============================================================================================================='''
 
 
-# Fungsi untuk menampilkan produk
-def display_products(produk):
-    if len(produk) == 0:
-        print("Tidak ada produk dalam kategori ini.")
-        return
-    table = PrettyTable()
-    table.field_names = ["ID", "Nama Produk", "Harga", "Stok"]
-    table.title = "Shopcoolz"
-    for a in produk:
-        table.add_row([a["ID"], a["Nama Produk"], a["Harga"], a["Stok"]])
-    print(table)
 
+# Fungsi untuk menampilkan produk
+def display_products():
+    data = load_data()
+    for kategori in data["Kategori"]:
+        print(f"\nKategori: {kategori['Nama Kategori']}")
+        
+        table = PrettyTable()
+        table.field_names = ["ID", "Nama Produk", "Harga", "Stok"]
+        table.title = "Shopcoolz"
+        
+        for produk in kategori["produk"]:
+            table.add_row([produk["ID"], produk["Nama Produk"], produk["Harga"], produk["Stok"]])
+        
+        print(table)
 
 
 
@@ -331,6 +358,7 @@ def display_products(produk):
 '''=============================================================================================================='''
 '''                                          CREATE (Menambahkan Produk)                                         '''
 '''=============================================================================================================='''
+
 
 
 # Menambah produk baru
@@ -343,7 +371,6 @@ def create():
         print("+=========================================+")
         nama_kategori = str(input("Masukkan Kategori: "))  
         
-        # Apabila kategori termasuk di data kategori
         for kategori in data["Kategori"]:
             # Apabila nama kategori ada di dalam data kategori
             if kategori["Nama Kategori"].lower() == nama_kategori.lower():
@@ -355,13 +382,20 @@ def create():
                     
                     # Memeriksa apakah karakter produk sesuai
                     if not (2 <= len(nama_produk) <= 50 ):
-                        print("Minimal karakter produk 2 dan maksimal 50")
+                        print("+===========================================+")
+                        print("| Minimal karakter produk 2 dan maksimal 50 |")
+                        print("+===========================================+\n")
                         continue
                     elif not (nama_produk.strip() and harga.isdigit() and stok.isdigit()):
-                        print("Data tidak valid. Pastikan nama produk tidak kosong.")
+                        print("+======================================================+")
+                        print("| Data tidak valid. Pastikan nama produk tidak kosong. |")
+                        print("+======================================================+\n")
                         continue
                     elif not (100000000 >= int(harga) >= 100 and 10000 >= int(stok) > 0):
-                        print("Harga minimal Rp 100 dan maksimal Rp 100.000.000, dan stok minimal 1 & maksimal 10.000.")
+                        print("+======================================================+")
+                        print("|   Harga minimal Rp 100 dan maksimal Rp 100.000.000   |")
+                        print("|         dan stok minimal 1 & maksimal 10.000.        |")
+                        print("+======================================================+\n")
                         continue
                         
                     # Untuk menyimpan produk baru
@@ -378,7 +412,9 @@ def create():
                     print("\n---Produk baru telah ditambahkan.---\n")
                     
                 except (ValueError, KeyboardInterrupt):
-                    print("Mohon masukkan data yang valid dan jangan tekan ctrl + C!") 
+                    print("\n+=============================================================+")
+                    print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+                    print("+=============================================================+\n")
                 except Exception as a:
                     print(f"Error, {a}")
                 else:
@@ -386,10 +422,9 @@ def create():
         
         # Apabila tidak termasuk di daftar kategori
         if not (kategori["Nama Kategori"].lower() == nama_kategori.lower()):
-            print("Kategori tidak ditemukan.")
+            print("----Kategori tidak ditemukan.----")
             return
         break
-
 
 
 
@@ -397,6 +432,7 @@ def create():
 '''=============================================================================================================='''
 '''                                        UPDATE (Mengubah Data Produk)                                         '''
 '''=============================================================================================================='''
+
 
 
 # Mengupdate produk
@@ -408,7 +444,7 @@ def update():
         print("+=========================================+")
         nama_kategori = str(input("Masukkan Kategori: "))
         id_produk = int(input("Masukkan ID Produk yang akan diupdate: "))
-
+        
         for kategori in data["Kategori"]:
             if kategori["Nama Kategori"].lower() == nama_kategori:
                 for produk in kategori["produk"]:
@@ -420,13 +456,20 @@ def update():
                             stok_baru = input("Masukkan Stok Produk Baru: ")
                             
                             if not (2 <= len(nama_produk_baru) <= 50 ):
-                                print("Minimal karakter produk 2 dan maksimal 50")
+                                print("+===========================================+")
+                                print("| Minimal karakter produk 2 dan maksimal 50 |")
+                                print("+===========================================+\n")
                                 continue
                             elif not (nama_produk_baru.strip() and harga_baru.isdigit() and stok_baru.isdigit()):
-                                print("Data tidak valid. Pastikan nama produk tidak kosong.")
+                                print("+======================================================+")
+                                print("| Data tidak valid. Pastikan nama produk tidak kosong. |")
+                                print("+======================================================+\n")
                                 continue
                             elif not (100000000 >= int(harga_baru) >= 100 and 10000 >= int(stok_baru) > 0):
-                                print("Harga minimal Rp 100 dan maksimal Rp 100.000.000, dan stok minimal 1 & maksimal 10.000.")
+                                print("+======================================================+")
+                                print("|   Harga minimal Rp 100 dan maksimal Rp 100.000.000   |")
+                                print("|         dan stok minimal 1 & maksimal 10.000.        |")
+                                print("+======================================================+\n")
                                 continue
                             
                             # Untuk memperbarui produk
@@ -437,19 +480,24 @@ def update():
                             print("\n---Produk telah diupdate.---\n")
                             return
                 else:
-                    print('ID tidak ditemukan') 
+                    print('----ID tidak ditemukan----') 
                                 
         if not any(kategori["produk"]):
-            print("Kategori tidak ditemukan.")
+            print("----Kategori tidak ditemukan----.")
     except (ValueError,KeyboardInterrupt):
-        print("Mohon masukkan data yang valid dan jangan tekan ctrl + C!")
+        print("\n+=============================================================+")
+        print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+        print("+=============================================================+\n")
     except Exception as a:
             print(f"Error, {a}")
+
+
 
 
 '''=============================================================================================================='''
 '''                                           DELETE (Menghapus Produk)                                          '''
 '''=============================================================================================================='''
+
 
 
 # Menghapus produk
@@ -466,7 +514,9 @@ def delete():
                 print('Jangan pakai spasi atau karakter aneh apapun.')
                 continue
             elif not id_produk.isdigit():
-                print('Mohon masukkan angka dan jangan pakai spasi atau karakter aneh apapun.')
+                print("+========================================================================+")
+                print("| Mohon masukkan angka dan jangan pakai spasi atau karakter aneh apapun. |")
+                print("+========================================================================+")
                 continue
             # Untuk menghapus produk
             for kategori in data["Kategori"]:
@@ -475,17 +525,18 @@ def delete():
                         if produk["ID"] == int(id_produk):
                             kategori["produk"].remove(produk)
                             save_data(data)
-                            print("\n---Produk telah dihapus.---\n")
+                            print("\n----Produk telah dihapus.----\n")
                             return
-                    print("Produk tidak ditemukan.")
+                    print("----Produk tidak ditemukan----.")
                     return
             
-            print("Kategori tidak ditemukan.")
+            print("----Kategori tidak ditemukan----.")
         except (ValueError, KeyboardInterrupt):
-            print("Mohon masukkan data yang valid dan jangan tekan ctrl + C!")
+            print("\n+=============================================================+")
+            print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+            print("+=============================================================+\n")
         except Exception as a:
             print(f"Error, {a}")
-
 
 
 
@@ -495,16 +546,35 @@ def delete():
 '''=============================================================================================================='''
 
 
-# Fungsi untuk cari produk
-def search(nama):
+
+def search():
     data = load_data()
-    cari_produk = []
+    cari_produk = input("Masukkan Nama Produk yang akan dicari: ")
+    hasil_pencarian = []
+    
     for kategori in data["Kategori"]:
         for produk in kategori["produk"]:
-            if nama.lower() in produk["Nama Produk"].lower():
-                cari_produk.append(produk)
-    return cari_produk
-
+            if cari_produk.lower() in produk["Nama Produk"].lower():
+                hasil_pencarian.append(produk)
+                
+    if hasil_pencarian:
+        print("Hasil Pencarian:")
+        for kategori in data["Kategori"]:
+            print(f"\nKategori: {kategori['Nama Kategori']}")
+                
+            table = PrettyTable()
+            table.field_names = ["ID", "Nama Produk", "Harga", "Stok"]
+            table.title = "Shopcoolz"
+                
+            for produk in kategori["produk"]:
+                if produk in hasil_pencarian:
+                    table.add_row([produk["ID"], produk["Nama Produk"], produk["Harga"], produk["Stok"]])
+                    
+            print(table)
+    else:
+        print("----Produk tidak ditemukan----.")
+        
+    return hasil_pencarian
 
 
 
@@ -516,9 +586,11 @@ def search(nama):
 '''=============================================================================================================='''
 
 
+
 # Fungsi untuk menu customer
 def customer():
     while True:  
+            print("\n")
             print("+-----------------------------------+")
             print("|           Menu Customer           |")
             print("+-----------------------------------+")
@@ -535,10 +607,7 @@ def customer():
             try:
                 pilih_cust = input("Masukkan menu yang anda inginkan (1/2/3/4/5/6/7/8): ")
                 if pilih_cust == "1":
-                    data = load_data()
-                    for kategori in data["Kategori"]:
-                        print(f"\nKategori: {kategori['Nama Kategori']}")
-                        display_products(kategori["produk"])
+                    display_products()
                 elif pilih_cust == "2":
                     transaksi()
                     break
@@ -549,13 +618,7 @@ def customer():
                     top_up()
                     break
                 elif pilih_cust == "5":
-                    cari_produk = input("Masukkan Nama Produk yang akan dicari: ")
-                    cari_produk = search(cari_produk)
-                    if cari_produk:
-                        print("Hasil Pencarian:")
-                        display_products(cari_produk)
-                    else:
-                        print("Produk tidak ditemukan.")
+                    search()
                 elif pilih_cust == "6":
                     sort_products()
                 elif pilih_cust == "7":
@@ -564,12 +627,15 @@ def customer():
                     exit()
                     break
                 else: 
-                    print('Tolong masukkan angka 1/2/3/4/5/6/7')
+                    print("+=====================================+")
+                    print("| Tolong masukkan angka 1/2/3/4/5/6/7 |")
+                    print("+=====================================+\n")
             except (ValueError, KeyboardInterrupt):
-                print("Mohon masukkan data yang valid dan jangan tekan ctrl + C!")
+                print("\n+=============================================================+")
+                print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+                print("+=============================================================+\n")
             except Exception as a:
                 print(f"Error, {a}")
-
 
 
 
@@ -579,21 +645,24 @@ def customer():
 '''=============================================================================================================='''
 
 
+
 # Fungsi untuk transaksi
 def transaksi():
     # Untuk memuat data di file produks.json
     data = load_data()
     struk = {"Produk Dibeli": [], "Total Harga": 0}
     
-
+    
     while True:
         print("\n------------------Diskon 10% minimal belanja Rp. 500.000--------------------\n")
         print("Kategori yang Tersedia:")
         # Menampilkan Nama Kategori dari data Kategori
-        print("+============Kategori=============+")
+        print("+=========================+")
+        print("|         Kategori        |")
+        print("+=========================+")
         for kategori in data["Kategori"]:
             print(kategori["Nama Kategori"])
-        print("+=================================+\n")
+        print("+=========================+\n")
         
         kategori_terpilih = input("Masukkan kategori yang ingin Anda telusuri atau 'selesai' untuk menyelesaikan transaksi: ")
         
@@ -629,23 +698,19 @@ def transaksi():
                             print(f"{jumlah} {produk['Nama Produk']} ditambahkan ke struk.")
                             struk["Total Harga"] += int(Subtotal_harga)
                         else:
-                            print("Stok tidak mencukupi untuk produk yang dipilih.")
+                            print("+=================================================+")
+                            print("| Stok tidak mencukupi untuk produk yang dipilih. |")
+                            print("+=================================================+\n")
                         break
                 else:
-                    print("Produk dengan ID yang diberikan tidak ditemukan.")
+                    print("+==================================================+")
+                    print("| Produk dengan ID yang diberikan tidak ditemukan. |")
+                    print("+==================================================+\n")
                 break
         else:
-            print("Kategori tidak ditemukan.")
+            print("----Kategori tidak ditemukan.----")
             
     cetak_struk(struk, username)
-    
-    minimal_belanja = 500000
-    total_harga_sebelum_diskon = sum(float(item['Subtotal Harga']) for item in struk["Produk Dibeli"])
-    if total_harga_sebelum_diskon >= minimal_belanja:
-        diskon = total_harga_sebelum_diskon * 0.1
-        total_harga_setelah_diskon = int(total_harga_sebelum_diskon - diskon)
-        struk["Total Harga"] = total_harga_setelah_diskon
-            
     save_data(data)
             
     while True:
@@ -660,10 +725,11 @@ def transaksi():
             else:
                 print("Pilihan tidak valid. Silakan masukkan 'y' atau 't'.")
         except (ValueError, KeyboardInterrupt):
-            print("Mohon masukkan data yang valid dan jangan tekan ctrl + C!")
-        except Exception:
-            print("Error")
-
+            print("\n+=============================================================+")
+            print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+            print("+=============================================================+\n")
+        except Exception as a:
+            print(f"Error, {a}")
 
 
 
@@ -673,12 +739,13 @@ def transaksi():
 '''=============================================================================================================='''
 
 
+
 # Fungsi untuk struk
 def cetak_struk(struk, username):
     login_data = load_data_user()
-    print("\n====================================================")
-    print(" Masukkan password anda untuk melanjutkan transaksi" )
-    print("====================================================")
+    print("\n+====================================================+")
+    print("| Masukkan password anda untuk melanjutkan transaksi |" )
+    print("+====================================================+")
     print(f"Username: {username}")
     
     while True:
@@ -690,6 +757,7 @@ def cetak_struk(struk, username):
             if user["Nama User"].lower() == username.lower():
                 if user["Pw User"] == password:
                     akun_ada = True
+                    print("\n  ----Pembayaran berhasil. Silahkan cek struk anda----  \n")
                     with open("struk_belanja.txt", "a") as s:
                         print("\n=====================================================", file=s)
                         print("                   Struk Belanja", file=s)
@@ -708,7 +776,7 @@ def cetak_struk(struk, username):
                         print(f"Total Harga Sebelum Diskon: Rp. {int(total_harga_sebelum_diskon):>5}", file=s)
                             
                         minimal_belanja = 500000
-                        total_harga = struk['Total Harga']
+                        total_harga = struk["Total Harga"]
                         
                         # Menghitung diskon jika syarat terpenuhi
                         if total_harga >= minimal_belanja:
@@ -736,9 +804,10 @@ def cetak_struk(struk, username):
         if akun_ada:
             break
         else:
-            print("Akun tidak ditemukan atau kata sandi salah. Silakan coba lagi.")
+            print("+==================================================================+")
+            print("|  Akun tidak ditemukan atau kata sandi salah. Silakan coba lagi.  |")
+            print("+==================================================================+\n")
             break
-
 
 
 
@@ -748,12 +817,13 @@ def cetak_struk(struk, username):
 '''=============================================================================================================='''
 
 
+
 # Fungsi untuk lihat saldo
 def lihat_saldo():
     login_data = load_data_user()
-    print("\n====================================================")
-    print("     Masukkan password anda untuk melihat saldo     ")
-    print("====================================================")
+    print("\n+====================================================+")
+    print("| Masukkan password anda untuk melanjutkan transaksi |" )
+    print("+====================================================+")
     print(f"Username: {username}")
     
     while True:
@@ -765,12 +835,12 @@ def lihat_saldo():
                 if user["Pw User"] == password:
                     akun_ada = True
                     saldo_cust = user["Saldo"] 
-                    print("\n====================================================")
-                    print("                    Saldo E-Money                   ")
-                    print("====================================================")
-                    print(f"Username: {username}")
-                    print(f"Saldo E-Money Anda saat ini adalah Rp. {saldo_cust}")
-                    print("====================================================")
+                    print("+----------------------------------------------------+")
+                    print("|                    Saldo E-Money                   |")
+                    print("+----------------------------------------------------+")
+                    print(f"> Username: {username}                               ")
+                    print(f"> Saldo E-Money Anda saat ini adalah Rp. {saldo_cust}")
+                    print("+----------------------------------------------------+")
                     continue
                 
         while True:       
@@ -780,14 +850,15 @@ def lihat_saldo():
                 customer()
                 break
             else:
-                print("Ketik b jika ingin kembali ke menu customer")
+                print("!!! Ketik b jika ingin kembali ke menu customer !!!")
                 pass
                     
         if akun_ada:
             break
         else:
-            print("Akun tidak ditemukan atau kata sandi salah. Silakan coba lagi.")
-
+            print("+================================================================+")
+            print("| Akun tidak ditemukan atau kata sandi salah. Silakan coba lagi. |")
+            print("+================================================================+\n")
 
 
 
@@ -797,11 +868,12 @@ def lihat_saldo():
 '''=============================================================================================================='''
 
 
+
 def top_up():
     login_data = load_data_user()
-    print("\n====================================================")
-    print("   Masukkan password anda untuk melankukan top up   ")
-    print("====================================================")
+    print("\n+====================================================+")
+    print("| Masukkan password anda untuk melanjutkan transaksi |" )
+    print("+====================================================+")
     print(f"Username: {username}")
     
     while True:
@@ -819,7 +891,10 @@ def top_up():
         if akun_ada:
             break
         else:
-            print("Akun tidak ditemukan atau kata sandi salah. Silakan coba lagi.")
+            print("+================================================================+")
+            print("| Akun tidak ditemukan atau kata sandi salah. Silakan coba lagi. |")
+            print("+================================================================+\n")
+            
             
     while True:
         print("\n+------------TOP UP SALDO-----------+")
@@ -850,13 +925,17 @@ def top_up():
                     jumlah_topup = int(input("Masukkan nominal yang anda inginkan: "))
                     
                 if jumlah_topup > 15000000:
-                    print("Top-up melebihi batas maksimal (15 juta).")
+                    print("+===========================================+")
+                    print("| Top-up melebihi batas maksimal (15 juta). |")
+                    print("+===========================================+\n")
                 elif jumlah_topup < 0:
-                    print("Input nominal tidak valid. Top-up tidak boleh dibawah 0")
+                    print("+=========================================================+")
+                    print("| Input nominal tidak valid. Top-up tidak boleh dibawah 0 |")
+                    print("+=========================================================+\n")
                 else:
                     saldo_cust += jumlah_topup
-                    print(f"Saldo E-Money berhasil ditambahkan sebesar Rp. {jumlah_topup}")
-                    print(f"Total saldo E-Money anda sekarang adalah Rp. {saldo_cust}")
+                    print(f"---Saldo E-Money berhasil ditambahkan sebesar Rp. {jumlah_topup}---")
+                    print(f"     Total saldo E-Money anda sekarang adalah Rp. {saldo_cust}     ")
                     
                     for user in login_data:
                         if user["Nama User"].lower() == username.lower():
@@ -873,7 +952,9 @@ def top_up():
                                 print("+=====================================================+", file=saldo)
                             break
             else:
-                print("Pilihan tidak valid. Silakan pilih opsi yang benar.")
+                print("+=====================================================+")
+                print("| Pilihan tidak valid. Silakan pilih opsi yang benar. |")
+                print("+=====================================================+\n")
                 
             ulangi = input("Apakah Anda ingin melakukan top-up lagi? (y/t): ")
             if ulangi.lower() == "y":
@@ -881,7 +962,9 @@ def top_up():
             elif ulangi.lower() == "t":
                 back = input("Apakah anda ingin kembali ke menu customer? (y/t): ")
                 if back.lower() not in ["y", "t"]:
-                    print("Input tidak valid. Silahkan pilih 'y' untuk ya atau 't' untuk tidak.")
+                    print("+======================================================================+")
+                    print("| Input tidak valid. Silahkan pilih 'y' untuk ya atau 't' untuk tidak. |")
+                    print("+======================================================================+\n")
                 if back.lower() == "y":
                     customer()
                     break
@@ -890,13 +973,16 @@ def top_up():
                     print("Masih ingin top up saldo?, silahkan top up kembali")
                     pass
             else:
-                print("Input tidak valid. Silahkan pilih 'y' untuk ya atau 't' untuk tidak.")
+                print("+======================================================================+")
+                print("| Input tidak valid. Silahkan pilih 'y' untuk ya atau 't' untuk tidak. |")
+                print("+======================================================================+\n")
                     
         except (ValueError, KeyboardInterrupt):
-            print("Mohon masukkan data yang valid dan jangan tekan ctrl + C!")
+            print("\n+=============================================================+")
+            print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+            print("+=============================================================+\n")
         except Exception as a:
             print(f"Error, {a}")
-
 
 
 
@@ -906,7 +992,7 @@ def top_up():
 '''=============================================================================================================='''
 
 
-# Fungsi untuk mengurutkan produk berdasarkan HARGA
+
 def sort_products():
     data = load_data()
     
@@ -915,25 +1001,26 @@ def sort_products():
         
     save_data(data)
     print("\n-------Data telah diurutkan berdasarkan harga-------")
-    for kategori in data["Kategori"]:
-        print(f"\nKategori: {kategori['Nama Kategori']}")
-        display_products(kategori["produk"])
-
+    display_products()
+        
     try:
         back = input("Apakah anda ingin mengurutkan kembali berdasarkan ID? (y/t): ").lower()
         while back not in ["y", "t"]:
-            print("Input tidak valid. Silahkan pilih 'y' untuk ya atau 't' untuk tidak.")
+            print("+======================================================================+")
+            print("| Input tidak valid. Silahkan pilih 'y' untuk ya atau 't' untuk tidak. |")
+            print("+======================================================================+\n")
             back = input("Apakah anda ingin mengurutkan kembali berdasarkan ID? (y/t): ").lower()
-        
+            
         if back == "y":
             sort_id()
         elif back == "t":
             customer()
     except (ValueError, KeyboardInterrupt):
-        print('Mohon masukkan data yang valid dan jangan tekan ctrl + C!')
+        print("\n+=============================================================+")
+        print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+        print("+=============================================================+\n")
     except Exception as a:
-            print(f"Error, {a}")
-
+        print(f"Error, {a}")
 
 
 
@@ -943,17 +1030,19 @@ def sort_products():
 '''=============================================================================================================='''
 
 
-# Fungsi untuk megurutkan produk berdasarkan ID
+
 def sort_id():
     data = load_data()
+        
     for kategori in data["Kategori"]:
         kategori["produk"] = sorted(kategori["produk"], key=lambda x: x["ID"])
-
-        save_data(data)
-        print("\n-------Data telah diurutkan kembali berdasarkan ID produk-------")
-    for kategori in data["Kategori"]:
-        print(f"\nKategori: {kategori['Nama Kategori']}")
-        display_products(kategori["produk"])
+        
+    save_data(data)
+    print("\n-------Data telah diurutkan berdasarkan ID produk-------")
+        
+        
+    display_products()
+    customer()
 
 
 
@@ -961,6 +1050,7 @@ def sort_id():
 '''=============================================================================================================='''
 '''                                                       EXIT                                                   '''
 '''=============================================================================================================='''
+
 
 
 def exit():
@@ -973,12 +1063,13 @@ def exit():
 
 
 
+
 '''=============================================================================================================='''
 '''                                                Menentukan ROLE                                               '''
 '''=============================================================================================================='''
 
 
-# Fungsi untuk memilih role
+
 def start():  
     while True:  
         print("+-----------------------------------+")
@@ -998,10 +1089,14 @@ def start():
                 user()
                 break
             else:
-                print('Tolong masukkan angka 1 atau 2')
+                print("+==================================+")
+                print("|  Tolong masukkan angka 1 atau 2  |")
+                print("+==================================+")
                 pass
         except (ValueError, KeyboardInterrupt):
-            print("Mohon masukkan data yang valid dan jangan tekan ctrl + C!")
+            print("\n+=============================================================+")
+            print("|  Mohon masukkan data yang valid dan jangan tekan ctrl + C!  |")
+            print("+=============================================================+\n")
         except Exception as a:
             print(f"Error, {a}")
 start()
